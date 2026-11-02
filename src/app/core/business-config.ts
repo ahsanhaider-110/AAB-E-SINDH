@@ -19,8 +19,8 @@ export const BUSINESS_CONFIG: BusinessConfig = {
   productName: '19-litre drinking water bottle',
   bottleVolumeLitres: 19,
   unitPricePkr: 70,
-  whatsappNumber: null,
-  phoneNumber: null,
+  whatsappNumber: '9230362944391',
+  phoneNumber: '+92 303 62944391',
   serviceAreas: ['L-14 Market', 'L-8 Market'],
   qualityReports: [],
 };

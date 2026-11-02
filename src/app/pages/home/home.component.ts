@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { BusinessService } from '../../core/business.service';
 
 @Component({
   selector: 'aes-home',
@@ -15,6 +16,7 @@ import { RouterLink } from '@angular/router';
           <p class="hero-lede">Your everyday 19-litre bottle, ordered simply. AAB E SINDH makes getting drinking water delivered feel effortless.</p>
           <div class="hero-actions">
             <a class="button-primary" routerLink="/order">Order your 19L bottle <i class="bi bi-arrow-up-right"></i></a>
+            @if (business.whatsappContactUrl) { <a class="button-whatsapp" [href]="business.whatsappContactUrl" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp" aria-hidden="true"></i> Order on WhatsApp</a> }
             <a class="text-action" routerLink="/delivery-areas"><span class="play-icon"><i class="bi bi-geo-alt"></i></span> Check delivery areas</a>
           </div>
           <div class="hero-assurance"><span><i class="bi bi-droplet"></i> One bottle size. No guesswork.</span><span><i class="bi bi-chat-dots"></i> Clear order details</span></div>
@@ -116,7 +118,7 @@ import { RouterLink } from '@angular/router';
           <details><summary>What does AAB E SINDH deliver?<i class="bi bi-plus"></i></summary><p>AAB E SINDH focuses exclusively on 19-litre drinking water bottles.</p></details>
           <details><summary>How much does a bottle cost?<i class="bi bi-plus"></i></summary><p>The business price has not been configured on this website yet, so we don’t display an estimated or invented price.</p></details>
           <details><summary>Do you deliver to my area?<i class="bi bi-plus"></i></summary><p>Only confirmed locations will be listed. Current verified delivery-area information has not yet been provided.</p></details>
-          <details><summary>Can I order on WhatsApp?<i class="bi bi-plus"></i></summary><p>WhatsApp ordering will be enabled once the business adds its verified WhatsApp number in the central settings.</p></details>
+          <details><summary>Can I order on WhatsApp?<i class="bi bi-plus"></i></summary><p>Yes. Use any WhatsApp contact button to start a chat with AAB E SINDH.</p></details>
         </div>
       </div>
     </section>
@@ -131,6 +133,7 @@ import { RouterLink } from '@angular/router';
     h1 span { color: var(--blue); }
     .hero-lede { max-width: 495px; color: #5b727b; font-size: 1.08rem; line-height: 1.8; }
     .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.35rem; margin-top: 2rem; }
+    .button-whatsapp { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; gap: .6rem; padding: .8rem 1.1rem; border: 1px solid #cce8dc; border-radius: 12px; background: #effaf5; color: #176f50; font-size: .88rem; font-weight: 700; text-decoration: none; transition: background .2s ease, border-color .2s ease, transform .2s ease; }.button-whatsapp:hover { transform: translateY(-2px); border-color: #9bd3ba; background: #e3f6ec; color: #125c42; }.button-whatsapp i { font-size: 1.1rem; }
     .text-action, .inline-link { display: inline-flex; align-items: center; gap: .65rem; color: var(--navy); font-size: .88rem; font-weight: 700; text-decoration: none; }
     .text-action:hover, .inline-link:hover { color: var(--blue); }
     .play-icon { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid #d5e7e9; border-radius: 50%; background: #fff; color: var(--blue); }
@@ -191,4 +194,6 @@ import { RouterLink } from '@angular/router';
     @media (prefers-reduced-motion: reduce) { .bottle-illustration { animation: none; } }
   `],
 })
-export class HomeComponent {}
+export class HomeComponent {
+  readonly business = inject(BusinessService);
+}

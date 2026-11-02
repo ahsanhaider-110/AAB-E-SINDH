@@ -17,7 +17,7 @@ import { BottleOrder } from '../../core/order.model';
           <span class="eyebrow">AAB E SINDH · 19L BOTTLE</span>
           <h1 class="page-title">Start your order.</h1>
           <p>Tell us how many 19-litre bottles you need and where to deliver them. Price and availability are confirmed by the business before your order is final.</p>
-          @if (business.config.phoneNumber) { <p class="phone-contact"><a [href]="'tel:' + business.config.phoneNumber">Call us: {{ business.config.phoneNumber }}</a></p> }
+          @if (business.config.phoneNumber && business.phoneHref) { <p class="phone-contact"><a [href]="'tel:' + business.phoneHref">Call us: {{ business.config.phoneNumber }}</a></p> }
         </div>
 
         <form class="order-layout" [formGroup]="form" (ngSubmit)="submitOrder()" novalidate>

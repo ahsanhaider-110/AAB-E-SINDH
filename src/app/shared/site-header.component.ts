@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { BusinessService } from '../core/business.service';
 import { BrandMarkComponent } from './brand-mark.component';
 
 @Component({
@@ -18,6 +19,7 @@ import { BrandMarkComponent } from './brand-mark.component';
           <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
           <a routerLink="/delivery-areas" routerLinkActive="active" (click)="closeMenu()">Delivery areas</a>
           <a routerLink="/water-quality" routerLinkActive="active" (click)="closeMenu()">Our standards</a>
+          @if (business.whatsappContactUrl) { <a class="nav-whatsapp" [href]="business.whatsappContactUrl" target="_blank" rel="noopener noreferrer" aria-label="Chat with AAB E SINDH on WhatsApp at +92 303 62944391"><i class="bi bi-whatsapp" aria-hidden="true"></i><span>+92 303 62944391</span></a> }
           <a class="nav-order" routerLink="/order" (click)="closeMenu()">Order a 19L bottle <i class="bi bi-arrow-up-right"></i></a>
         </div>
       </nav>
@@ -31,6 +33,8 @@ import { BrandMarkComponent } from './brand-mark.component';
     .nav-links a:hover, .nav-links a.active { color: var(--blue); }
     .nav-links .nav-order { display: inline-flex; align-items: center; gap: .65rem; padding: .8rem 1.1rem; border-radius: 12px; background: var(--navy); color: #fff; }
     .nav-links .nav-order:hover { background: var(--blue); color: #fff; }
+    .nav-links .nav-whatsapp { display: inline-flex; align-items: center; gap: .45rem; color: #197a56; white-space: nowrap; }
+    .nav-links .nav-whatsapp i { font-size: 1.08rem; }
     .menu-toggle { display: none; border: 0; background: transparent; color: var(--navy); font-size: 1.5rem; }
     @media (max-width: 760px) {
       .header-inner { min-height: 70px; }
@@ -43,6 +47,7 @@ import { BrandMarkComponent } from './brand-mark.component';
   `],
 })
 export class SiteHeaderComponent {
+  readonly business = inject(BusinessService);
   readonly menuOpen = signal(false);
   toggleMenu(): void { this.menuOpen.update((value) => !value); }
   closeMenu(): void { this.menuOpen.set(false); }

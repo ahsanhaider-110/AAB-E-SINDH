@@ -18,8 +18,9 @@ import { BrandMarkComponent } from './brand-mark.component';
           </div>
           <div class="footer-column"><span class="footer-title">Explore</span><a routerLink="/order">Order a bottle</a><a routerLink="/delivery-areas">Delivery areas</a><a routerLink="/water-quality">Water quality</a></div>
           <div class="footer-column"><span class="footer-title">Get in touch</span>
-            @if (business.config.phoneNumber) { <a [href]="'tel:' + business.config.phoneNumber">Call us: {{ business.config.phoneNumber }}</a> }
-            @else { <span class="muted">Contact details to be confirmed</span> }
+            @if (business.config.phoneNumber && business.phoneHref) { <a [href]="'tel:' + business.phoneHref">Call us: {{ business.config.phoneNumber }}</a> }
+            @if (business.whatsappContactUrl) { <a class="whatsapp-contact" [href]="business.whatsappContactUrl" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp: +92 303 62944391</a> }
+            @else if (!business.config.phoneNumber) { <span class="muted">Contact details to be confirmed</span> }
           </div>
         </div>
         <div class="footer-bottom"><span>© {{ year }} AAB E SINDH</span><span>Made for everyday hydration.</span></div>
@@ -34,6 +35,7 @@ import { BrandMarkComponent } from './brand-mark.component';
     .footer-title { margin-bottom: .2rem; color: #fff; font-weight: 700; }
     .footer-column a, .footer-bottom a { color: #c4d6dc; text-decoration: none; }
     .footer-column a:hover, .footer-bottom a:hover { color: var(--aqua); }
+    .footer-column .whatsapp-contact { display: inline-flex; align-items: center; gap: .4rem; }
     .muted { color: #a7c0c9; }
     .footer-bottom { display: flex; justify-content: space-between; gap: 1rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.14); color: #9ab5bf; font-size: .78rem; }
     @media (max-width: 650px) { .footer-main { grid-template-columns: 1fr 1fr; gap: 2rem 1rem; } .footer-brand { grid-column: 1 / -1; } .footer-bottom { flex-wrap: wrap; } }
