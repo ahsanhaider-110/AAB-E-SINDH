@@ -1,0 +1,17 @@
+@use 'sass:math';
+
+$color-navy: #07394f;
+$color-royal: #087c9c;
+$color-aqua: #91e5e3;
+$content-width: 1120px;
+
+@mixin focus-ring {
+  &:focus-visible { outline: 3px solid rgba(8, 124, 156, .42); outline-offset: 3px; }
+}
+
+@function rem($pixels) {
+  @if math.is-unitless($pixels) {
+    @return math.div($pixels, 16) * 1rem;
+  }
+  @return math.div(math.div($pixels, 1px), 16) * 1rem;
+}
