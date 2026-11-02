@@ -21,6 +21,6 @@ export const BUSINESS_CONFIG: BusinessConfig = {
   unitPricePkr: 70,
   whatsappNumber: null,
   phoneNumber: null,
-  serviceAreas: ['L-14 Market', 'L-8 Market', 'Double Road', 'Extension'],
+  serviceAreas: ['L-14 Market', 'L-8 Market'],
   qualityReports: [],
 };
