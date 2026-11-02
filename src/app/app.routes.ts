@@ -21,15 +21,6 @@ export const routes: Routes = [
     title: 'Water Quality | AAB E SINDH',
     loadComponent: () => import('./pages/quality/quality.component').then((m) => m.QualityComponent),
   },
-  {
-    path: 'account',
-    title: 'Your Orders | AAB E SINDH',
-    loadComponent: () => import('./pages/account/account.component').then((m) => m.AccountComponent),
-  },
-  {
-    path: 'admin',
-    title: 'Admin Dashboard | AAB E SINDH',
-    loadComponent: () => import('./pages/admin/admin.component').then((m) => m.AdminComponent),
-  },
+  { path: 'account', redirectTo: 'order', pathMatch: 'full' },
   { path: '**', redirectTo: '' },
 ];

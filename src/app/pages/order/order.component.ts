@@ -17,6 +17,7 @@ import { BottleOrder } from '../../core/order.model';
           <span class="eyebrow">AAB E SINDH · 19L BOTTLE</span>
           <h1 class="page-title">Start your order.</h1>
           <p>Tell us how many 19-litre bottles you need and where to deliver them. Price and availability are confirmed by the business before your order is final.</p>
+          @if (business.config.phoneNumber) { <p class="phone-contact"><a [href]="'tel:' + business.config.phoneNumber">Call us: {{ business.config.phoneNumber }}</a></p> }
         </div>
 
         <form class="order-layout" [formGroup]="form" (ngSubmit)="submitOrder()" novalidate>
@@ -67,7 +68,7 @@ import { BottleOrder } from '../../core/order.model';
     </section>
   `,
   styles: [`
-    .page-intro { max-width: 670px; }.order-layout { display: grid; grid-template-columns: minmax(0,1.55fr) minmax(275px,.75fr); align-items: start; gap: 1.25rem; }
+    .page-intro { max-width: 670px; }.phone-contact { margin-top: .75rem; font-size: .88rem; font-weight: 700; }.phone-contact a { color: var(--blue); text-decoration: none; }.phone-contact a:hover { text-decoration: underline; text-underline-offset: 3px; }.order-layout { display: grid; grid-template-columns: minmax(0,1.55fr) minmax(275px,.75fr); align-items: start; gap: 1.25rem; }
     .order-main { display: grid; gap: 1.2rem; }.form-card, .summary-card { padding: 1.6rem; border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: 0 8px 26px rgba(13,61,78,.04); }
     .card-heading { display: flex; align-items: center; gap: .9rem; margin-bottom: 1.5rem; }.step-badge { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 13px; background: #e9f7f6; color: var(--blue); font-size: .82rem; font-weight: 800; }
     .card-heading h2, .summary-card h2 { margin: 0; color: var(--navy); font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; }.card-heading p { margin: .3rem 0 0; color: var(--muted); font-size: .8rem; }
@@ -144,7 +145,7 @@ export class OrderComponent {
       return;
     }
     this.whatsappUrl.set(url);
-    window.open(url, '_blank', 'noopener,noreferrer');
     this.statusMessage.set('Your order details are ready. Review and send the message in WhatsApp; use the link below if it did not open.');
+    window.open(url, '_blank', 'noopener,noreferrer');
   }
 }

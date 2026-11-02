@@ -18,9 +18,9 @@ export const BUSINESS_CONFIG: BusinessConfig = {
   brandName: 'AAB E SINDH',
   productName: '19-litre drinking water bottle',
   bottleVolumeLitres: 19,
-  unitPricePkr: null,
+  unitPricePkr: 70,
   whatsappNumber: null,
   phoneNumber: null,
-  serviceAreas: [],
+  serviceAreas: ['L-14 Market', 'L-8 Market', 'Double Road', 'Extension'],
   qualityReports: [],
 };

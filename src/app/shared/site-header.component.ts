@@ -18,7 +18,6 @@ import { BrandMarkComponent } from './brand-mark.component';
           <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
           <a routerLink="/delivery-areas" routerLinkActive="active" (click)="closeMenu()">Delivery areas</a>
           <a routerLink="/water-quality" routerLinkActive="active" (click)="closeMenu()">Our standards</a>
-          <a routerLink="/account" routerLinkActive="active" (click)="closeMenu()">My orders</a>
           <a class="nav-order" routerLink="/order" (click)="closeMenu()">Order a 19L bottle <i class="bi bi-arrow-up-right"></i></a>
         </div>
       </nav>

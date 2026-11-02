@@ -18,12 +18,11 @@ import { BrandMarkComponent } from './brand-mark.component';
           </div>
           <div class="footer-column"><span class="footer-title">Explore</span><a routerLink="/order">Order a bottle</a><a routerLink="/delivery-areas">Delivery areas</a><a routerLink="/water-quality">Water quality</a></div>
           <div class="footer-column"><span class="footer-title">Get in touch</span>
-            @if (business.config.phoneNumber) { <a [href]="'tel:' + business.config.phoneNumber">{{ business.config.phoneNumber }}</a> }
+            @if (business.config.phoneNumber) { <a [href]="'tel:' + business.config.phoneNumber">Call us: {{ business.config.phoneNumber }}</a> }
             @else { <span class="muted">Contact details to be confirmed</span> }
-            <a routerLink="/account">Customer orders</a>
           </div>
         </div>
-        <div class="footer-bottom"><span>© {{ year }} AAB E SINDH</span><span>Made for everyday hydration.</span><a routerLink="/admin">Admin preview <i class="bi bi-arrow-up-right"></i></a></div>
+        <div class="footer-bottom"><span>© {{ year }} AAB E SINDH</span><span>Made for everyday hydration.</span></div>
       </div>
     </footer>
   `,
