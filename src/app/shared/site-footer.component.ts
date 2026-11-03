@@ -19,7 +19,7 @@ import { BrandMarkComponent } from './brand-mark.component';
           <div class="footer-column"><span class="footer-title">Explore</span><a routerLink="/order">Order a bottle</a><a routerLink="/delivery-areas">Delivery areas</a><a routerLink="/water-quality">Water quality</a></div>
           <div class="footer-column"><span class="footer-title">Get in touch</span>
             @if (business.config.phoneNumber && business.phoneHref) { <a [href]="'tel:' + business.phoneHref">Call us: {{ business.config.phoneNumber }}</a> }
-            @if (business.whatsappContactUrl) { <a class="whatsapp-contact" [href]="business.whatsappContactUrl" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp: +92 303 62944391</a> }
+            @if (business.whatsappContactUrl) { <a class="whatsapp-contact" [href]="business.whatsappContactUrl" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp: +92 331 4288435</a> }
             @else if (!business.config.phoneNumber) { <span class="muted">Contact details to be confirmed</span> }
           </div>
         </div>

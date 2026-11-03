@@ -19,7 +19,7 @@ import { BrandMarkComponent } from './brand-mark.component';
           <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
           <a routerLink="/delivery-areas" routerLinkActive="active" (click)="closeMenu()">Delivery areas</a>
           <a routerLink="/water-quality" routerLinkActive="active" (click)="closeMenu()">Our standards</a>
-          @if (business.whatsappContactUrl) { <a class="nav-whatsapp" [href]="business.whatsappContactUrl" target="_blank" rel="noopener noreferrer" aria-label="Chat with AAB E SINDH on WhatsApp at +92 303 62944391"><i class="bi bi-whatsapp" aria-hidden="true"></i><span>+92 303 62944391</span></a> }
+          @if (business.whatsappContactUrl) { <a class="nav-whatsapp" [href]="business.whatsappContactUrl" target="_blank" rel="noopener noreferrer" aria-label="Chat with AAB E SINDH on WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a> }
           <a class="nav-order" routerLink="/order" (click)="closeMenu()">Order a 19L bottle <i class="bi bi-arrow-up-right"></i></a>
         </div>
       </nav>
